@@ -7,10 +7,13 @@ WORKDIR /app
 # Copy pom.xml and source
 COPY . .
 
+# Give execute permission to mvnw
+RUN chmod +x mvnw
+
 # Build the app
 RUN ./mvnw clean package -DskipTests
 
-# Expose the port (same as your Spring Boot server.port)
+# Expose the port
 EXPOSE 8080
 
 # Run the jar
