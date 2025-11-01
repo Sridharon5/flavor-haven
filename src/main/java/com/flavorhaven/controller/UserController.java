@@ -18,7 +18,7 @@ import com.flavorhaven.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin("*") // allows frontend access
+@CrossOrigin("*") 
 public class UserController {
 
     @Autowired
