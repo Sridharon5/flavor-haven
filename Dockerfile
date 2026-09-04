@@ -1,20 +1,20 @@
-# Use an official OpenJDK image
-FROM openjdk:17-jdk-slim
+# Use Eclipse Temurin Java 17
+FROM eclipse-temurin:17-jdk
 
 # Set working directory
 WORKDIR /app
 
-# Copy pom.xml and source
+# Copy project files
 COPY . .
 
-# Give execute permission to mvnw
+# Give execute permission to Maven wrapper
 RUN chmod +x mvnw
 
-# Build the app
+# Build the Spring Boot application
 RUN ./mvnw clean package -DskipTests
 
-# Expose the port
+# Expose Spring Boot port
 EXPOSE 8080
 
-# Run the jar
+# Run the application
 CMD ["java", "-jar", "target/flavor-haven-0.0.1-SNAPSHOT.jar"]
